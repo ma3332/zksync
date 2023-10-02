@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@matterlabs/zksync-contracts": "^0.6.1"
+  }
+}

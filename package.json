@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "elliptic": "^6.5.4",
+    "ethers": "^5.7.0",
+    "zksync-web3": "^0.14.3"
+  },
+  "type": "module"
+}
