@@ -48,7 +48,7 @@ zkSyncProvider = new Provider("https://testnet.era.zksync.dev");
 providerL1 = ethers.getDefaultProvider("goerli");
 
 const PRIVATE_KEY_SENDER: string =
-  "0x7a12e8a7c1b18a47df7ae73f89931af32483743ab522e2003b6b65727e4a31bd";
+  "";
 const txSender: Address = "0xb98Ef0896C9f1A175B97078f40097ea9fdf18588";
 
 const ERC20_TOKEN_ADDRESS = "0xADaB7DA44cc648D703645AbAa0d31BacE5DA6c5a";

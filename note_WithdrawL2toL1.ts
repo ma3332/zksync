@@ -39,8 +39,7 @@ let withdrawalHash: string;
 let TxIndex: number;
 let overrides: ethers.Overrides = {} || undefined;
 
-const PRIVATE_KEY_SENDER: string =
-  "0x7a12e8a7c1b18a47df7ae73f89931af32483743ab522e2003b6b65727e4a31bd";
+const PRIVATE_KEY_SENDER: string = "";
 const txSender: Address = "0xb98Ef0896C9f1A175B97078f40097ea9fdf18588";
 const L2DiamondProxy: Address = "0x1908e2BF4a88F91E4eF0DC72f02b8Ea36BEa2319"; // Interact via Proxy
 const L2ERC20Bridge: Address = "0x00ff932A6d70E2B8f1Eb4919e1e09C1923E7e57b";

@@ -76,8 +76,7 @@ function getCurve() {
 
 zkSyncProvider = new Provider("https://testnet.era.zksync.dev");
 
-const PRIVATE_KEY: string =
-  "0x7a12e8a7c1b18a47df7ae73f89931af32483743ab522e2003b6b65727e4a31bd";
+const PRIVATE_KEY: string = "";
 const address: Address = "0xb98Ef0896C9f1A175B97078f40097ea9fdf18588";
 
 const EMPTY_WALLET_PUBLIC_KEY: Address =

@@ -19,7 +19,7 @@ zkSyncProvider = new Provider("https://testnet.era.zksync.dev");
 let chainid: number | undefined = 280; // ChainID of ZKsync Testnet
 
 const PRIVATE_KEY_SEND: string =
-  "0x7a12e8a7c1b18a47df7ae73f89931af32483743ab522e2003b6b65727e4a31bd";
+  "";
 const addressSend: Address = "0xb98Ef0896C9f1A175B97078f40097ea9fdf18588";
 
 const addressReceive: Address = "0x2a3a900590e1AE9BCd6549Fd9F73A8fed50A207c";
