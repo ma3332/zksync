@@ -3,18 +3,19 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "target": "es2017",
+    "target": "es2022",
     "module": "esnext",
     "isolatedModules": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "*": ["*", "components/*"]
     },
-    "rootDirs": ["./"]
+    "rootDirs": ["./"], 
   },
-  "exclude": ["node_modules", "**/node_modules/*"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

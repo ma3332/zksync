@@ -28,8 +28,7 @@ function getCurve() {
 
 zkSyncProvider = new Provider("https://testnet.era.zksync.dev");
 
-const PRIVATE_KEY: string =
-  "";
+const PRIVATE_KEY: string = "";
 const address: Address = "0xb98Ef0896C9f1A175B97078f40097ea9fdf18588";
 
 const TOKEN_ADDRESS = "0x693F76A09521902Ce89D05EDBFC8143FB87Fe6f9";
@@ -69,7 +68,7 @@ unsignedTx.to = TOKEN_ADDRESS;
 unsignedTx.nonce = await zkSyncProvider.getTransactionCount(address);
 unsignedTx.gasPrice = await zkSyncProvider.getGasPrice();
 unsignedTx.type = 0; // no accessList, no maxPriorityFeePerGas, no maxFeePerGas
-unsignedTx.data = "0x";
+unsignedTx.data = tx.data;
 unsignedTx.chainId = chainid;
 unsignedTx.value = 0;
 unsignedTx.gasLimit = await zkSyncProvider.estimateGas({
@@ -78,7 +77,6 @@ unsignedTx.gasLimit = await zkSyncProvider.estimateGas({
   data: tx.data,
   type: 0,
 });
-unsignedTx.data = tx.data;
 
 const digest = keccak256(serializeL1(unsignedTx));
 

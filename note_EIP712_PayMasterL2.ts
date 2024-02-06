@@ -20,7 +20,7 @@ import _ec from "elliptic";
 import EC = _ec.ec;
 
 const version = "properties/5.7.0";
-const logger = new Logger(version);
+export const logger = new Logger(version);
 
 // Some Fix Value for Testing
 let zkSyncProvider: Provider;

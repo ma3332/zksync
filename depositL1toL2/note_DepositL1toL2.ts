@@ -8,9 +8,9 @@ import { keccak256 } from "@ethersproject/keccak256";
 import { _TypedDataEncoder } from "@ethersproject/hash";
 import { Logger } from "@ethersproject/logger";
 import _ec from "elliptic";
-import IZKSyncFactory from "./IZKSyncFactory.json" assert { type: "json" };
-import IL1BridgeFactory from "./IL1BridgeFactory.json" assert { type: "json" };
-import IERC20MetadataFactory from "./IERC20MetadataFactory.json" assert { type: "json" };
+import IZKSyncFactory from "../IZKSyncFactory.json" assert { type: "json" };
+import IL1BridgeFactory from "../IL1BridgeFactory.json" assert { type: "json" };
+import IERC20MetadataFactory from "../IERC20MetadataFactory.json" assert { type: "json" };
 import EC = _ec.ec;
 const version = "properties/5.7.0";
 const logger = new Logger(version);
@@ -47,8 +47,7 @@ type TXL1toL2 = {
 zkSyncProvider = new Provider("https://testnet.era.zksync.dev");
 providerL1 = ethers.getDefaultProvider("goerli");
 
-const PRIVATE_KEY_SENDER: string =
-  "";
+const PRIVATE_KEY_SENDER: string = "";
 const txSender: Address = "0xb98Ef0896C9f1A175B97078f40097ea9fdf18588";
 
 const ERC20_TOKEN_ADDRESS = "0xADaB7DA44cc648D703645AbAa0d31BacE5DA6c5a";
@@ -107,7 +106,7 @@ async function getDepositTx(unsignedTXL1toL2: TXL1toL2): Promise<any> {
   }
 
   const { ...tx } = unsignedTXL1toL2;
-  tx.to ??= txSender;
+  tx.to ??= "";
   tx.operatorTip ??= BigNumber.from(0);
   tx.overrides ??= {};
   tx.gasPerPubdataByte ??= utilsZK.REQUIRED_L1_TO_L2_GAS_PER_PUBDATA_LIMIT;
@@ -117,7 +116,7 @@ async function getDepositTx(unsignedTXL1toL2: TXL1toL2): Promise<any> {
     tx.token,
     tx.amount,
     tx.to,
-    txSender,
+    "",
     tx.gasPerPubdataByte
   );
 

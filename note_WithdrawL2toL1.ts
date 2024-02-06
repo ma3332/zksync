@@ -36,7 +36,6 @@ zkSyncProvider = new Provider("https://testnet.era.zksync.dev");
 providerL1 = ethers.getDefaultProvider("goerli");
 
 let withdrawalHash: string;
-let TxIndex: number;
 let overrides: ethers.Overrides = {} || undefined;
 
 const PRIVATE_KEY_SENDER: string = "";
@@ -80,18 +79,6 @@ let unsignedWithdrawTxL2: UnsignedTransaction = {
   maxPriorityFeePerGas: 0 || undefined,
   maxFeePerGas: 0 || undefined,
 };
-
-async function getL1BridgeContract() {
-  return new ethers.Contract(L1ERC20Bridge, IL1BridgeFactory.abi, providerL1);
-}
-
-async function getL2BridgeContract() {
-  return new ethers.Contract(
-    L2ERC20Bridge,
-    IL2BridgeFactory.abi,
-    zkSyncProvider
-  );
-}
 
 async function finalizeWithdrawalParams(
   withdrawalHash: BytesLike,
@@ -170,6 +157,7 @@ const initWithdrawL2: WithdrawTXL2 = {
 
 initWithdrawL2.token = utilsZK.ETH_ADDRESS;
 initWithdrawL2.amount = ethers.utils.parseEther("0.03");
+initWithdrawL2.to = txSender;
 
 const withdrawTx = await zkSyncProvider.getWithdrawTx({
   from: txSender,
@@ -224,7 +212,6 @@ const txBytes = utilsZK.serialize(unsignedWithdrawTxL2, signatureBroadcast);
 zkSyncProvider.sendTransaction(txBytes);
 
 // Step 2: After 24h hour Finalize withdraw in L1
-
 const {
   l1BatchNumber,
   l2MessageIndex,
@@ -232,7 +219,7 @@ const {
   message,
   sender,
   proof,
-} = await finalizeWithdrawalParams(withdrawalHash, TxIndex);
+} = await finalizeWithdrawalParams(withdrawalHash);
 
 if (utilsZK.isETH(sender)) {
   const zksync = new ethers.Contract(
